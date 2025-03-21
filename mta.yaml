@@ -1,6 +1,6 @@
 _schema-version: 3.3.0
 ID: incident-management
-version: 1.0.0
+version: 1.1.1
 description: "A simple CAP project."
 parameters:
   enable-parallel-deployments: true
@@ -16,8 +16,10 @@ modules:
     type: nodejs
     path: gen/srv
     parameters:
-      instances: 1
+#      instances: 1 
       buildpack: nodejs_buildpack
+      readiness-health-check-type: http
+      readiness-health-check-http-endpoint: /health
     build-parameters:
       builder: npm-ci
     provides:
