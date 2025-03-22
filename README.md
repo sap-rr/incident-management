@@ -1,25 +1,9 @@
-# Getting Started
+# Incident Management tutorial
 
-Welcome to your new project.
+## Release information - 20250322
+Deploy-tutorial branch has a finished application creation and application deployment tutorial version founded here: 
+https://discovery-center.cloud.sap/protected/index.html#/mymissiondetail/149911/card/11813893/?tab=projectboard
 
-It contains these folders and files, following our recommended project layout:
-
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+Files have been checked to have exactly the same content that the tutorials explained.
 
 
-## Next Steps
-
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
-
-
-## Learn More
-
-Learn more at https://cap.cloud.sap/docs/get-started/.
