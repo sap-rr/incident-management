@@ -1,15 +1,20 @@
 {
   "name": "incident-management",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^8",
-    "express": "^4",
     "@cap-js/hana": "^1",
-    "@sap/xssec": "^4"
+    "@cap-js/telemetry": ">=0",
+    "@grpc/grpc-js": "^1",
+    "@opentelemetry/exporter-metrics-otlp-grpc": "^0",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0",
+    "@opentelemetry/host-metrics": "^0",
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "express": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.9.0",
@@ -27,6 +32,12 @@
     "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
+    "log": {
+      "levels": {
+        "sqlite": "debug",
+        "cds": "info"
+      }
+    },
     "requires": {
       "[development]": {
         "auth": {
@@ -53,11 +64,15 @@
       },
       "[production]": {
         "db": "hana",
-        "auth": "xsuaa"
+        "auth": "xsuaa",
+        "telemetry": {
+          "kind": "to-cloud-logging"
+        }
       },
       "html5-repo": true,
       "destinations": true,
-      "workzone": true
+      "workzone": true,
+      "cloud-logging": true
     },
     "sql": {
       "native_hana_associations": false
